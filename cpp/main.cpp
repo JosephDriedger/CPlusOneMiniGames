@@ -13,7 +13,7 @@ int main() {
     int input;
 
     do {
-        cout << "\tWelcome to C Plus One Mini Games!\n";
+        cout << "\n\tWelcome to C Plus One Mini Games!\n";
         cout << "\nWhich game do you want to play?\n\n";
 
         input = gameOptions();
@@ -97,4 +97,28 @@ void goToGame(int input) {
         default:
             break;
     }
+}
+
+int playAgain(string game) {
+    int input;
+
+    cout << "\nDo you want to play again?";
+
+    do {
+        cout << "\n1 - Yes";
+        cout << "\n2 - No";
+
+        cout << "\nYour response: ";
+        cin >> input;
+
+        if (input != 1 || input != 2) {
+            cout << "\nNot a valid response.";
+        } else if (input == 1) {
+            cout << "\nAwesome, let's play " << game << " again.";
+        } else {
+            cout << "\nThanks for playing " << game << "!";
+        }
+    } while (input != 1 || input != 2);
+
+    return input;
 }

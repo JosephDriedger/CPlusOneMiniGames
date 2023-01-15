@@ -53,6 +53,8 @@ int game(string word, int maxWrong) {
 }
 
 void Hangman() {
+    int input;
+    string curGame = "Hangman";
     const int MAX_WRONG = 8;
 
     vector<string> words;
@@ -62,17 +64,21 @@ void Hangman() {
     words.push_back("JESUS");
     words.push_back("FLETCHER");
 
-    srand(static_cast<unsigned int>(time(0)));
-    random_shuffle(words.begin(), words.end());
-    const string THE_WORD = words[0];
+    do {
+        srand(static_cast<unsigned int>(time(0)));
+        random_shuffle(words.begin(), words.end());
+        const string THE_WORD = words[0];
 
-    cout << "Welcome to Hangman. Good luck!\n";
-    
-    if (game(THE_WORD, MAX_WRONG)) {
-        cout << "\nYou've survived!";
-    } else {
-        cout << "\nYou've been hanged!";
-    }
+        cout << "Welcome to Hangman. Good luck!\n";
+        
+        if (game(THE_WORD, MAX_WRONG)) {
+            cout << "\nYou've survived!";
+        } else {
+            cout << "\nYou've been hanged!";
+        }
 
-    cout << "\nThe word was " << THE_WORD << endl;
+        cout << "\nThe word was " << THE_WORD << endl;
+
+        input = playAgain(curGame);
+    } while (input != 2);
 }

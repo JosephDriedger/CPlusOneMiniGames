@@ -56,6 +56,9 @@ int guessWord(string word, string hint) {
 }
 
 void WordJumble() {
+    int input;
+    string game = "Word Jumble";
+
     enum fields {WORD, HINT, NUM_FIELDS};
     const int NUM_WORDS = 5;
     const string WORDS[NUM_WORDS][NUM_FIELDS] = {
@@ -66,20 +69,22 @@ void WordJumble() {
         {"pettersson", "Best IQ in the NHL currently..."}
     };
 
-    srand(static_cast<unsigned int>(time(0)));
-    int choice = (rand() % NUM_WORDS);
-    string theWord = WORDS[choice][WORD];
-    string theHint = WORDS[choice][HINT];
+    do {
+        srand(static_cast<unsigned int>(time(0)));
+        int choice = (rand() % NUM_WORDS);
+        string theWord = WORDS[choice][WORD];
+        string theHint = WORDS[choice][HINT];
 
-    string jumble = jumbleWord(theWord);
+        string jumble = jumbleWord(theWord);
 
-    welcomePlayer(jumble);
+        welcomePlayer(jumble);
 
-    if (guessWord(theWord, theHint) == -1) {
-        cout << "\nYou quitter!! The word was " << theWord << ".\n";
-    } else {
-        cout << "\nThat's it. You guessed it!\n";
-    }
+        if (guessWord(theWord, theHint) == -1) {
+            cout << "\nYou quitter!! The word was " << theWord << ".\n";
+        } else {
+            cout << "\nThat's it. You guessed it!\n";
+        }
 
-    cout << "\nThanks for playing!\n";
+        input = playAgain(game);
+    } while (input != 2);
 }

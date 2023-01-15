@@ -28,29 +28,37 @@ void CampfireStory() {
     int killed = 0;
     int survivors;
     string leader;
+    string game = "Campfire Story";
+    int input;
 
     cout << "Welcome to Lost Fortune\n\n";
-    cout << "Please enter the following for your personalized adventure\n";
-
-    cout << "Enter a number: ";
-    cin >> adventurers;
 
     do {
-        cout << "Enter a number, smaller than the first: ";
-        cin >> killed;
+        cout << "Please enter the following for your personalized adventure\n";
 
-        if (killed >= adventurers) {
-            cout << killed << " is not smaller than " << adventurers << endl;
-        } else if (killed < 0) {
-            cout << killed << " is not a valid number." << endl;
-        }
-    } while (killed >= adventurers || killed < 0);
+        cout << "Enter a number: ";
+        cin >> adventurers;
 
-    survivors = adventurers - killed;
+        do {
+            cout << "Enter a number, smaller than the first: ";
+            cin >> killed;
 
-    cout << "Enter your last name: ";
-    cin >> leader;
+            if (killed >= adventurers) {
+                cout << killed << " is not smaller than " << adventurers << endl;
+            } else if (killed < 0) {
+                cout << killed << " is not a valid number." << endl;
+            }
+        } while (killed >= adventurers || killed < 0);
 
-    tellStory(GOLD_PIECES, adventurers, killed, survivors, leader);
+        survivors = adventurers - killed;
+
+        cout << "Enter your last name: ";
+        cin >> leader;
+
+        tellStory(GOLD_PIECES, adventurers, killed, survivors, leader);
+
+        input = playAgain(game);
+    } while (input != 2);
+
 }
 

@@ -326,6 +326,8 @@ ostream& operator<<(ostream& os, const Card& aCard);
 ostream& operator<<(ostream& os, const GenericPlayer& aGenericPlayer);
 
 void Blackjack() {
+    int input;
+    string game = "Blackjack";
     cout << "\t\tWelcome to Blackjack!\n\n";
 
     int numPlayers = 0;
@@ -344,10 +346,9 @@ void Blackjack() {
     cout << endl;
 
     Game aGame(names);
-    char again = 'y';
-    while (again != 'n' && again != 'N') {
+    
+    do {
         aGame.Play();
-        cout << "\nDo you want to play again? (Y/N): ";
-        cin >> again;
-    }
+        input = playAgain(game);
+    } while (input != 2);
 }
