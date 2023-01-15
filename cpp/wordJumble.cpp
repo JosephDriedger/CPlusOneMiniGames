@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include "../h/cPlusOneMiniGames.h"
 
 using namespace std;
 
@@ -57,7 +58,7 @@ int guessWord(string word, string hint) {
 
 void WordJumble() {
     int input;
-    string game = "Word Jumble";
+    string curGame = "Word Jumble";
 
     enum fields {WORD, HINT, NUM_FIELDS};
     const int NUM_WORDS = 5;
@@ -85,6 +86,6 @@ void WordJumble() {
             cout << "\nThat's it. You guessed it!\n";
         }
 
-        input = playAgain(game);
+        input = playAgain(curGame);
     } while (input != 2);
 }

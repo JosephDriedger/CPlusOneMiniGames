@@ -1,31 +1,8 @@
 #include <iostream>
-
-// Games Functions
-#include "campfireStory.cpp"
-#include "guessMyNumber.cpp"
-#include "wordJumble.cpp"
-#include "hangman.cpp"
-#include "blackjack.cpp"
+#include <string>
+#include "../h/cPlusOneMiniGames.h"
 
 using namespace std;
-
-int main() {
-    int input;
-
-    do {
-        cout << "\n\tWelcome to C Plus One Mini Games!\n";
-        cout << "\nWhich game do you want to play?\n\n";
-
-        input = gameOptions();
-
-        goToGame(input);
-        
-    } while (input != 0);
-
-    cout << "\nThanks for playing!\n";
-
-    return 0;
-}
 
 int gameOptions() {
     int option;
@@ -111,14 +88,34 @@ int playAgain(string game) {
         cout << "\nYour response: ";
         cin >> input;
 
-        if (input != 1 || input != 2) {
+        if (input < 1 || input > 2) {
             cout << "\nNot a valid response.";
         } else if (input == 1) {
-            cout << "\nAwesome, let's play " << game << " again.";
+            cout << "\nAwesome, let's play " << game << " again.\n";
         } else {
-            cout << "\nThanks for playing " << game << "!";
+            cout << "\nThanks for playing " << game << "!\n";
         }
-    } while (input != 1 || input != 2);
+    } while (input < 1 || input > 2);
 
     return input;
+}
+
+int main() {
+    int input;
+
+    do {
+        cout << "\n\tWelcome to C Plus One Mini Games!\n";
+        cout << "\nWhich game do you want to play?\n\n";
+
+        input = gameOptions();
+
+        cout << endl;
+
+        goToGame(input);
+        
+    } while (input != 0);
+
+    cout << "\nThanks for playing!\n";
+
+    return 0;
 }

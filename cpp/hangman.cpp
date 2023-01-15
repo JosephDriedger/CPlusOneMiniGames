@@ -4,10 +4,11 @@
 #include <algorithm>
 #include <ctime>
 #include <cctype>
+#include "../h/cPlusOneMiniGames.h"
 
 using namespace std;
 
-int game(string word, int maxWrong) {
+int playGame(string word, int maxWrong) {
     int wrong = 0;
     string soFar(word.size(), '_');
     string used = "";
@@ -71,7 +72,7 @@ void Hangman() {
 
         cout << "Welcome to Hangman. Good luck!\n";
         
-        if (game(THE_WORD, MAX_WRONG)) {
+        if (playGame(THE_WORD, MAX_WRONG)) {
             cout << "\nYou've survived!";
         } else {
             cout << "\nYou've been hanged!";

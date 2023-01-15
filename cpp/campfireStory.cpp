@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "../h/cPlusOneMiniGames.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ void CampfireStory() {
     int killed = 0;
     int survivors;
     string leader;
-    string game = "Campfire Story";
+    string curGame = "Campfire Story";
     int input;
 
     cout << "Welcome to Lost Fortune\n\n";
@@ -57,7 +58,7 @@ void CampfireStory() {
 
         tellStory(GOLD_PIECES, adventurers, killed, survivors, leader);
 
-        input = playAgain(game);
+        input = playAgain(curGame);
     } while (input != 2);
 
 }
