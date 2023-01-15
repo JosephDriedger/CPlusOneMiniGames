@@ -1,10 +1,11 @@
 #include <iostream>
 
 // Games Functions
-#include "campfireStory.h"
-#include "guessMyNumber.h"
-#include "wordJumble.h"
-#include "hangman.h"
+#include "campfireStory.cpp"
+#include "guessMyNumber.cpp"
+#include "wordJumble.cpp"
+#include "hangman.cpp"
+#include "blackjack.cpp"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ int main() {
 
     do {
         cout << "\tWelcome to C Plus One Mini Games!\n";
-        cout << "\nWhich game do you want to play?\n";
+        cout << "\nWhich game do you want to play?\n\n";
 
         input = gameOptions();
 
@@ -30,11 +31,11 @@ int gameOptions() {
     int option;
 
     // Options
-    cout << "\n1 - Campfire Story\n";
+    cout << "1 - Campfire Story\n";
     cout << "2 - Guess My Number\n";
     cout << "3 - Word Jumble\n";
     cout << "4 - Hangman\n";
-    cout << "5 - \n";
+    cout << "5 - Blackjack\n";
     cout << "6 - \n";
     cout << "7 - \n";
     cout << "8 - \n";
@@ -58,22 +59,23 @@ int gameOptions() {
 void goToGame(int input) {
     switch (input) {
         case 1:
-            campfireStory();
+            CampfireStory();
             break;
         
         case 2:
-            guessMyNumber();
+            GuessMyNumber();
             break;
         
         case 3:
-            wordJumble();
+            WordJumble();
             break;
         
         case 4:
-            hangman();
+            Hangman();
             break;
 
         case 5:
+            Blackjack();
             break;
             
         case 6:
