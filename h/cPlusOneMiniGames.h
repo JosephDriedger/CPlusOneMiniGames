@@ -16,7 +16,6 @@ using namespace std;
 int playAgain(string game);
 
 // Campfire Story
-void tellStory(int goldPieces, int adventurers, int killed, int survivors, string leader);
 void CampfireStory();
 
 // Guess My Number
@@ -30,5 +29,8 @@ void Hangman();
 
 // Blackjack
 void Blackjack();
+
+// Monopoly
+void Monopoly();
 
 #endif
